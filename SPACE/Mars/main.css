@@ -4,5 +4,17 @@
 }
 
 h1 {
-  font-family: "Retro"
+  font-family: "Retro";
+  font-size: 82px;
+  color: white;
+  text-align: center;
 }
+
+body {
+  background-color: black;
+  text-align: center;
+}
+ img.resize {
+   max-width: 40%;
+   max-height: 40%;
+ }
