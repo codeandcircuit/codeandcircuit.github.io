@@ -19,7 +19,7 @@
 <br>
 Input your weight here to see what it would be on Venus!
 <center>
-<input id="weight">
+<input id="weight" onChange="checkInput(this)" onKeyup="checkInput(this)">
 <input type="button" value="calculate" onClick="calculate()">
 <input id="output">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -30,6 +30,12 @@ function calculate()
 var w = $('#weight').val() * 0.91
 $('#output').val(w);
 }
+function checkInput(ob){
+    var invalidChars = /[^0-9]/gi
+            if(invalidChars.test(ob.value)) {
+                    ob.value = ob.value.replace(invalidChars,"");
+          }
+};
 
 </script>
 </center>
