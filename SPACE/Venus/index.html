@@ -13,5 +13,23 @@
 	<br>
 	Due to an extreme greenhouse effect from the atmosphere's large amount of carbon, almost 95% of its composition, surface temperatures of venus is on average four hundred sixty two degrees Celcius (eight hundred seventy two degrees Fahrenheit)! This large amount of carbon can even lead to acidic rainfall on the surface.
 <!--for links <a href=(link)>Description</a>-->
+<!--javascript begins below (shows weight on planet)-->
+<!--put this thing at the end please-->
+<br>
+<br>
+Input your weight here to see what it would be on Venus!
+<center>
+<input id="weight">
+<input type="button" value="calculate" onClick="calculate()">
+<input id="output">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
+
+function calculate()
+{
+var w = $('#weight').val() * 0.91
+$('#output').val(w);
+}
+
 </script>
+</center>
