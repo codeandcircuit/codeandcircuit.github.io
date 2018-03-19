@@ -12,6 +12,13 @@ body {
 	margin: 0;
 	position: sticky;
 }
+iframe:focus { 
+    outline: none;
+}
+
+iframe[seamless] { 
+    display: block;
+}
 #nav_wrapper {
 	width: 960px;
 	margin:0 auto;
