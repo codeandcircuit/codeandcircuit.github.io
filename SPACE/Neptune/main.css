@@ -1,0 +1,8 @@
+@font-family {
+	font-family: "8-bit"
+	src: url(bit.ttf);
+}
+
+h1 {
+	font-family: "8-bit";
+}
