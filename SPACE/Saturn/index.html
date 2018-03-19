@@ -16,5 +16,28 @@ For additional information, see: <a href="https://solarsystem.nasa.gov/planets/s
 
 </font>
 
+<input id = "weight"> 
+<input type="button" value="Calculate"  onClick="calculate()">
+<input id="output"
+
+<!-- jquery tool for javascript -->
+<head>
+<font face="Copperplate" size= 3 color= "white"> Weight Calculator</font>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+
+
+<script>
+
+function calculate()
+{
+	var w = $('#weight').val() * 1.07;
+	$('#output').val(w);
+}
+
+
+</script>
 
 
