@@ -8,3 +8,19 @@ This is a website about <b>Europa</b>
 <br>
 Here's some more info: <a href="https://en.wikipedia.org/wiki/Europa_(moon)">Wikipedia Article on Europa</a>
 </center>
+
+Find your weight on Europa!!!<br>
+<input id="weight">
+<input type="button" value="Calculate" onClick="calculate()">
+<input id="output">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+function calculate()
+{
+	var w = $('#weight').val() * 0.1;
+	$('#output').val(w);
+}
+
+</script>
