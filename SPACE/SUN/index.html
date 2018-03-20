@@ -1,3 +1,6 @@
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
 <body bgcolor="black">
 <font color="white" size=10 face="Roboto">
 <center>
@@ -19,3 +22,15 @@ Here is the wikipedia link so go to a conner of the room and cry:
 	}
 
 </style>
+<br>
+
+<input id="weight_calc">
+<input type="button" value="Click to calculate your weight on the sun!" onClick="calculate()">
+<input id="output">
+
+<script>
+	function calculate() {
+		var w = $('#weight_calc').val() * 27.9;
+		$('#output').val(w);
+	}
+</script>

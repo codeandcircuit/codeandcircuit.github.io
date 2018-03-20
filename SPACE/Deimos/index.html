@@ -1,0 +1,25 @@
+ 
+<body bgcolor="black">
+<center>
+<br> 
+<font face="Papyrus" size=6 color="Lightcyan">
+Deimos is one of the 2 moons that revolve around Mars! It looks like this: 
+<img src="Deimos Image.jpg">
+
+</center>
+
+Find your weight on Deimos!!!<br>
+<input id="weight">
+<input type="button" value="Calculate" onClick="calculate()">
+<input id="ouput">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+function calculate()
+{ 
+	var w = $('#weight').val() * 0.003;
+	$('#output').val(w);
+}
+
+</script>

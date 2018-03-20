@@ -1,9 +1,43 @@
-
-
-Welcome to the webpage about <B>Saturn<B/>.
+<center>
+<font face="Copperplate" size= 10 color= "white">
+<p><b>Saturn<b/></p>
+</font>
 
 <body bgcolor= "black">
+<img src="giphy.gif">
 
-<img src="saturn1.jpg">
 
-<font face="Times New Roman" size= 14 color= "white"></font>
+
+<center></center>
+
+<font face="Copperplate" size= 3 color= "white">
+
+For additional information, see: <a href="https://solarsystem.nasa.gov/planets/saturn/overview/">Saturn Overview by NASA</a>
+
+</font>
+
+<input id = "weight"> 
+<input type="button" value="Calculate"  onClick="calculate()">
+<input id="output"
+
+<!-- jquery tool for javascript -->
+<head>
+<font face="Copperplate" size= 3 color= "white"> Weight Calculator</font>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+
+
+
+<script>
+
+function calculate()
+{
+	var w = $('#weight').val() * 1.07;
+	$('#output').val(w);
+}
+
+
+</script>
+
+
