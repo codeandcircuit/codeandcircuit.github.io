@@ -31,7 +31,8 @@ function calcuulateDistanceToEarth(){
 		data: JSON. stringify({body:"Earth"}),
 success: function(data)
 {
-	alert(data.miles_away);
+	//alert(data.miles_away);
+	$("#distance").html(data/.miles_away);
 },
 dataType: "application/json"
 contenttpye:"application/json"
