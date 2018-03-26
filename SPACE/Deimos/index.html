@@ -21,6 +21,7 @@ Deimos is <b id="distance">123</b> miles away.
 $(function()
 {
   calculateDistanceToMars();
+  setInterval(calculateDistanceToMars(), 1000);
 });
 
 function calculateDistanceToMars()
