@@ -14,7 +14,7 @@ This is <b>MOTHER EARTH</b>
 <script>
 
 function caluculate()
-{	var w = $('#weight').val() * 0.1;
+{	var w = $('#weight').val() * 1;
 	$('#output').val(w);
 }
 
@@ -28,9 +28,12 @@ function calcuulateDistanceToEarth(){
 	$.ajax({
 		type: "POST"
 		url: "http://10.0.1.40.5000/ephem"
-		data: JSON. stringify({body:"EARTH"}),
+		data: JSON. stringify({body:"Earth"}),
 success: function(data)
 {
 	alert(data.miles_away);
 },
+dataType: "application/json"
+contenttpye:"application/json"
+});
 </script>
