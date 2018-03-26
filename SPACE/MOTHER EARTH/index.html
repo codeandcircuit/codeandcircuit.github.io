@@ -26,15 +26,15 @@ $(function()
 });
 function calcuulateDistanceToEarth(){ 
 	$.ajax({
-		type: "POST"
-		url: "http://10.0.1.40.5000/ephem"
+		type: "POST",
+		url: "http://10.0.1.40.5000/ephem",
 		data: JSON. stringify({body:"Earth"}),
 success: function(data)
 {
 	//alert(data.miles_away);
-	$("#distance").html(data/.miles_away);
+	$("#distance").html(data.miles_away);
 },
-dataType: "application/json"
+dataType: "json",
 contenttpye:"application/json"
 });
-</script>
+
