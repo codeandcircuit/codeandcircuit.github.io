@@ -1,9 +1,9 @@
 <center>
 This is <b>MOTHER EARTH</b>
 <br> <img src="MOTHEREARTH.jpg" width=750>
-<br> <font color="Ghostwhite"> (this is a joke)
-<br> <br> <font color="Ghostwhite"> This is a wikipedia page that tells <b>complete</b> lies about earth
-<br> <font color="Ghostwhite"> Click <a href="https://en.wikipedia.org/wiki/Earth">here</a>!!!
+<br> (this is a joke)
+<br> <br> This is a wikipedia page that tells <b>complete</b> lies about earth
+<br> Click <a href="https://en.wikipedia.org/wiki/Earth">here</a>!!!
 
 
 <br>
@@ -14,8 +14,27 @@ This is <b>MOTHER EARTH</b>
 <script>
 
 function caluculate()
-{	var w = $('#weight').val() * 0.1;
+{	var w = $('#weight').val() * 1;
 	$('#output').val(w);
 }
 
+
+
+$(function()
+{
+	calcuulateDistanceToEarth()   
+});
+function calcuulateDistanceToEarth(){ 
+	$.ajax({
+		type: "POST"
+		url: "http://10.0.1.40.5000/ephem"
+		data: JSON. stringify({body:"Earth"}),
+success: function(data)
+{
+	//alert(data.miles_away);
+	$("#distance").html(data/.miles_away);
+},
+dataType: "application/json"
+contenttpye:"application/json"
+});
 </script>

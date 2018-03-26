@@ -1,9 +1,53 @@
+
+<head>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+$(function()
+{
+	CalculateDistanceToEarth();
+
+});
+
+function CalculateDistanceToEarth()
+{
+	$.ajax({
+		type:"POST",
+		url: "http://10.0.1.40:5000/ephem",
+		data: JSON.stringify({bosy:"Earth"}),
+		success:function(data)
+		{
+			//alert(data.miles_away);
+			$("#distance").html(data.miles_away);
+		},
+		dataType:"json",
+		contentType: "application/json"
+
+	});
+}
+
+
+function calculate()
+{
+	var w = $('#weight').val() * 1.07;
+	$('#output').val(w);
+}
+
+
+</script>
+
+
+</head>
+<body bgcolor= "black">
+
+
 <center>
 <font face="Copperplate" size= 10 color= "white">
 <p><b>Saturn<b/></p>
 </font>
 
-<body bgcolor= "black">
+
 <img src="giphy.gif">
 
 
@@ -15,29 +59,22 @@
 For additional information, see: <a href="https://solarsystem.nasa.gov/planets/saturn/overview/">Saturn Overview by NASA</a>
 
 </font>
+<br>
+
 
 <input id = "weight"> 
 <input type="button" value="Calculate"  onClick="calculate()">
 <input id="output"
 
 <!-- jquery tool for javascript -->
-<head>
-<font face="Copperplate" size= 3 color= "white"> Weight Calculator</font>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-</head>
-
+<br>
+	<font face="Copperplate" size= 3 color= "white"> Weight Calculator
+</font>
 
 
-<script>
-
-function calculate()
-{
-	var w = $('#weight').val() * 1.07;
-	$('#output').val(w);
-}
-
-
-</script>
-
+<br> 
+Saturn is <b id="distance">222</b> miles away.
+<br>
+</font>
 

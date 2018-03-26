@@ -6,21 +6,51 @@
 Deimos is one of the 2 moons that revolve around Mars! It looks like this: 
 <img src="Deimos Image.jpg">
 
-</center>
+-</center>
+
+<br>
+Deimos is <b id="distance">123</b> miles away.
+<br>
+
 
 Find your weight on Deimos!!!<br>
 <input id="weight">
 <input type="button" value="Calculate" onClick="calculate()">
 <input id="ouput">
 
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
 <script>
+
+$(function()
+{
+  calculateDistanceToMars();
+});
+
+function calculateDistanceToMars()
+{
+  $.ajax({
+    type:"POST",
+    url: "http://10.0.1.40:5000/ephem",
+    data: JSON.stringify({body:"Mars"}),
+    sucess:function(data)
+    {
+    	//alert(data.miles_away);
+    	$("#distance").html(data.miles_away);
+    },
+      dataType:"JSON",
+      contentType:"application/JSONs"
+
+
+  });
+
+}
 
 function calculate()
 { 
-	var w = $('#weight').val() * 0.003;
+	var w = $('#weight').val() * 0.3;
 	$('#output').val(w);
-	sdfsdf
 }
-
+  
 </script>
