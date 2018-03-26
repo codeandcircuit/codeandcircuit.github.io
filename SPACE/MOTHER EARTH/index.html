@@ -5,7 +5,7 @@ This is <b>MOTHER EARTH</b>
 <br> <br> This is a wikipedia page that tells <b>complete</b> lies about earth
 <br> Click <a href="https://en.wikipedia.org/wiki/Earth">here</a>!!!
 
-<!-- can you find me? -->
+
 <br>
 <input id="weight">
 <input type="button" value= "Caluculate" onclick="caluculate()">
@@ -18,4 +18,19 @@ function caluculate()
 	$('#output').val(w);
 }
 
+
+
+$(function()
+{
+	calcuulateDistanceToEarth()   
+});
+function calcuulateDistanceToEarth(){ 
+	$.ajax({
+		type: "POST"
+		url: "http://10.0.1.40.5000/ephem"
+		data: JSON. stringify({body:"EARTH"}),
+success: function(data)
+{
+	alert(data.miles_away);
+},
 </script>
