@@ -1,8 +1,8 @@
 <center>
-This is <b>MOTHER EARTH</b>
-<br> <img src="MOTHEREARTH.jpg" width=750>
+This is <b>MOTHER Monn</b>
+<br> <img src="MOTHERMoon.jpg" width=750>
 <br> (this is a joke)
-<br> <br> This is a wikipedia page that tells <b>complete</b> lies about earth
+<br> <br> This is a wikipedia page that tells <b>complete</b> lies about Moon
 <br> Click <a href="https://en.wikipedia.org/wiki/Earth">here</a>!!!
 
 
@@ -22,14 +22,14 @@ function calculate()
 
 $(function()
 {
-	calculateDistanceToEarth()   
+	calculateDistanceToMoon()   
 });
-function calculateDistanceToEarth()
+function calculateDistanceToMoon()
 {
 	$.ajax({
 		type: "POST",
 		url: "http://10.0.1.40:5000/ephem",
-		data: JSON. stringify({body:"Earth"}),
+		data: JSON. stringify({body:"Moon"}),
 success: function(data)
 {
 	//alert(data.miles_away);
