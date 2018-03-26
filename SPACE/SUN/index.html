@@ -11,6 +11,8 @@ The Sun
 <img src="sun.gif" width=500>
 </center>
 <br>
+The Sun is currently <b id="distance">Err</b> miles away from Boston.
+<br>
 Here is the wikipedia link:
 <a href="https://en.wikipedia.org/wiki/Sun">Here<a/>
 </font>
@@ -28,6 +30,27 @@ Here is the wikipedia link:
 <input type="button" value="Click to calculate your weight on the sun!" onClick="calculate()">
 <input id="output">
 
+<script>
+	$(function()
+	{
+		calculateDistanceToEarth();
+	});
+function calculateDistanceToEarth()
+{
+	$.ajax({
+		type: "POST",
+		url: "http://10.0.1.40:5000/ephem",
+		data: JSON.stringify({body:"Jupiter"}),
+		success:function(data)
+		{
+			//alert(data.miles_away);
+			$("#distance").html(data.miles_away);
+		},
+		dataType:"json",
+		contentType: "application/json"
+	});
+}
+</script>
 <script>
 	function calculate() {
 		var w = $('#weight_calc').val() * 27.9;
