@@ -8,12 +8,12 @@ This is <b>MOTHER EARTH</b>
 
 <br>
 <input id="weight">
-<input type="button" value= "Caluculate" onclick="caluculate()">
+<input type="button" value="Calculate" onClick="calculate()">
 <input id="output">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 
-function caluculate()
+function calculate()
 {	var w = $('#weight').val() * 1;
 	$('#output').val(w);
 }
@@ -22,12 +22,13 @@ function caluculate()
 
 $(function()
 {
-	calcuulateDistanceToEarth()   
+	calculateDistanceToEarth()   
 });
-function calcuulateDistanceToEarth(){ 
+function calculateDistanceToEarth()
+{
 	$.ajax({
 		type: "POST",
-		url: "http://10.0.1.40.5000/ephem",
+		url: "http://10.0.1.40:5000/ephem",
 		data: JSON. stringify({body:"Earth"}),
 success: function(data)
 {
@@ -35,6 +36,6 @@ success: function(data)
 	$("#distance").html(data.miles_away);
 },
 dataType: "json",
-contenttpye:"application/json"
+contenType:"application/json"
 });
-
+}</script>
