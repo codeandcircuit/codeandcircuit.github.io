@@ -7,6 +7,8 @@ This is <b>MOTHER EARTH</b>
 
 
 <br>
+Miles to Moon: <b id="distance"></b>
+<br>
 <input id="weight">
 <input type="button" value="Calculate" onClick="calculate()">
 <input id="output">
@@ -29,7 +31,7 @@ function calculateDistanceToEarth()
 	$.ajax({
 		type: "POST",
 		url: "http://10.0.1.40:5000/ephem",
-		data: JSON. stringify({body:"Earth"}),
+		data: JSON. stringify({body:"Moon"}),
 success: function(data)
 {
 	//alert(data.miles_away);
