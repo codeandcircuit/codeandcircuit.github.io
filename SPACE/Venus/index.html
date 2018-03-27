@@ -11,7 +11,10 @@
 	Venus was always mysterious to the world, before 1982 we had never even seen throught its atmosphere. Nobody knew what lied below its carbon cover, with many people having absolutely insane ideas. For example, many thought that there might have been another society like our own, or of aliens. Some film producers even made movies showing prehistoric animals or aliens living there. Some even imagined more humans living there. After 1982, however, we saw the surface, and all of these theories were disproven. 
 	<br>
 	<br>
-	Due to an extreme greenhouse effect from the atmosphere's large amount of carbon, almost 95% of its composition, surface temperatures of venus is on average four hundred sixty two degrees Celcius (eight hundred seventy two degrees Fahrenheit)! This large amount of carbon can even lead to acidic rainfall on the surface.
+	Venus is probably made up of elements very similar to Earth, with a core, mantle, and crust. Scientists don't know for sure about the inner workings of Venus, as taking interior scans of another planet would be a nearly impossible task. Right now we can only predict/ what is on the inside based on its exterior activity. Despite these probable similarities, Venus's crust doesn't show the same plate tectonics that Earth does, with all of its tectonic plates having frozen up and molded together hundreds of millions of years ago, forming one solid crust-peice spanning the whole planet, like a shell. Another difference between Earth and Venus is the magnetic fields. Venus doesn't have as strong of a magnetic field despite its similar materials. It spins much slower than Earth; once every 243 days here on Earth, so it isn't capable of generating such a massive magnetic field as ours.
+	<br>
+	<br>
+	Due to an extreme greenhouse effect from the atmosphere's large amount of carbon, almost 95% of its composition, surface temperatures of venus is on average four hundred sixty two degrees Celcius (eight hundred seventy two degrees Fahrenheit)! That is hot enough to melt lead! This large amount of carbon can even lead to acidic rainfall, however, this rain can't even reach the surface, as the surface temperature evaporates the sulfuric acid before it can completely fall. 
 <!--for links <a href=(link)>Description</a>-->
 <!--javascript begins below (shows weight on planet)-->
 <!--put this thing at the end please-->
@@ -39,3 +42,31 @@ function checkInput(ob){
 
 </script>
 </center>
+<!--More other scripts-->
+<!--This is for calculating the distance from the planet currently-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<script>
+
+$(function()
+{
+	VenusDistance();
+});
+
+function VenusDistance()
+{
+	$.ajax({
+	type: "POST",
+	url: "http://10.0.1.40:5000/ephem",
+	data: JSON.stringify({body:"Venus"}),
+	success:function(data)
+{
+	alert(data.miles_away);
+	$("#distance").html(data.miles_away);
+},
+dataType:"json",
+contentType: "application/json"
+	});
+}
+
+</script>
