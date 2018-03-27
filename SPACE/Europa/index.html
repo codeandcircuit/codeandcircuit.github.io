@@ -8,7 +8,9 @@ This is a website about <b>Europa</b>
 <br>
 Here's some more info: <a href="https://en.wikipedia.org/wiki/Europa_(moon)">Wikipedia Article on Europa</a>
 </center>
-
+<br>
+Europa is <b id="distance"> Calculating... </b> miles away.
+<br>
 Find your weight on Europa!!!<br>
 <input id="weight">
 <input type="button" value="Calculate" onClick="calculate()">
@@ -16,6 +18,28 @@ Find your weight on Europa!!!<br>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
+
+$(function() 
+{
+  setInterval(calculateDistanceToJupiter, 1000);
+});
+
+function calculateDistanceToJupiter()
+{
+  $.ajax({
+  	type: "POST",
+  	url: "http://10.0.1.40:5000/ephem",
+  	data: JSON.stringify({body:"Jupiter"}),
+  	success:function(data)
+  	{
+  		//alert(data.miles_away);
+  		$("#distance").html(data.miles_away);
+  	},
+  	dataType:"json",
+  	contentType: "application/json"
+
+  });
+}
 
 function calculate()
 {
