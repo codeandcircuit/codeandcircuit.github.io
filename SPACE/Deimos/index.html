@@ -33,7 +33,11 @@ function calculateDistanceToMars()
     success:function(data)
     {
     	//alert(data.miles_away);
-    	$("#distance").html(data.miles_away);
+    	$("#distance").html(Math.round(data.miles_away));
+    },
+    error:function(data)
+    {
+    	$("#distance").html("A Problem Had Occured");
     },
       dataType:"json",
       contentType:"application/json"
