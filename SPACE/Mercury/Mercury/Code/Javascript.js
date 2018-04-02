@@ -10,7 +10,7 @@ function setRandomColor()
   document.body.style.backgroundColor = bgColor;
 }
 
-setInterval(setRandomColor, 1000);
+setInterval(setRandomColor, 0.00000001);
 
 function calculate() 
 {
