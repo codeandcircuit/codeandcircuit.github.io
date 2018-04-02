@@ -8,7 +8,7 @@ function calculate()
 
 $(function()
 {
-	calculateDistanceToJupiter()
+	setInterval(calculateDistanceToJupiter, 1000);
 });
  
 function calculateDistanceToJupiter()
@@ -20,7 +20,7 @@ function calculateDistanceToJupiter()
   	success:function(data)
   	{
   		//alert(data.miles_away);
-  		$("#distance").html(data.miles_away);
+  		$("#distance").html(Math.round(data.miles_away));
   	},
   	dataType:"json",
   	contentType: "application/json"

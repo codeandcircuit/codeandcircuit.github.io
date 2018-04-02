@@ -11,6 +11,12 @@
 		<img src="HTTPS9tZWRpYTMucG9wc3VnYXItYXNzZXRzLmNvbS9maWxlcy8yMDE1LzA4LzE4LzgyMS9uLzE5MjIzOTgvZjhhOTlmZmJfcGx1dG8ueHh4bGFyZ2UuZ2lm.gif" width="300">
 		</div>
 		<a href="https://en.wikipedia.org/wiki/Pluto">Pluto Wikipedia</a>
+		<br>
+		<p>Pluto is <b id="distance">50</b> miles away</p>
+		<p>Find Your Weight On Pluto!</p>
+		<input id="weight">
+		<input type="button" value="Calculate" onclick="calculate()">
+		<input id="output">
 	</body>
 	<style>
 		body {
@@ -33,6 +39,32 @@
 			margin-left: 380px;
 		}
 	</style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script>
+		$(function()
+		{
+			calculateDistance();
+		});
+
+		function calculateDistance(){
+			$.ajax({
+				type: "POST",
+				url: "http://10.0.1.40:5000/ephem",
+				data: JSON.stringify({body:"Pluto"}),
+				success:function(data){
+					//alert(data.miles_away);
+					$("#distance").html(data.miles_away);
+				},
+				dataType:"json",
+				contentType: "application/json"
+			});
+		}
+
+		function calculate() {
+			var w = $('#weight').val() * 0.1;
+			$('#output').val(w);
+		}
+	</script>
 	<!-- 
 #include <stdio.h>
 int main(int argc, char* argv[]) {
