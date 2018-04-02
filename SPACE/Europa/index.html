@@ -14,7 +14,7 @@ Europa is <b id="distance"> Calculating.... </b> miles away.
 Find your weight on Europa!!!<br>
 <input id="weight">
 <input type="button" value="Calculate" onClick="calculate()">
-<input id="output">
+<input id="ouput">
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
@@ -33,8 +33,12 @@ function calculateDistanceToJupiter()
   	success:function(data)
   	{
   		//alert(data.miles_away);
-  		$("#distance").html(data.miles_away);
+  		$("#distance").html(Math.round(data.miles_away));
   	},
+    error:function(data)
+    {
+         $("#distance").html("An PROBLEM Happened.");
+    },
   	dataType:"json",
   	contentType: "application/json"
 
