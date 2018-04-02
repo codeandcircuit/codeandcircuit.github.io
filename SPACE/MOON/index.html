@@ -1,0 +1,57 @@
+<font color="white">
+<body bgcolor="black">
+<center>
+This is <b>The Moon</b>
+<br> <img src="moon.jpg" width=750>
+<br> (this is a joke)
+<br> <br> This is a wikipedia page that tells <b>complete</b> lies about the Moon
+<br> Click <a href="https://en.wikipedia.org/wiki/Moon">here</a>!!!
+
+
+<br>
+Miles to Moon: <b id="distance"></b>
+<br>
+<input id="weight">
+<input type="button" value="Calculate" onClick="calculate()">
+<input id="output">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+function calculate()
+{	var w = $('#weight').val() * 0.16667;
+	$('#output').val(w);
+}
+
+
+function setRandomColor()
+{
+    var x = Math.floor(Math.random() * 225);
+    var y = Math.floor(Math.random() * 225);
+    var z = Math.floor(Math.random() * 225);
+
+    var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+
+    document.body.style.background = bgColor;
+}
+setInterval(setRandomColor, 0.0000001);
+
+
+$(function()
+{
+	setInterval(calculateDistanceToMoon, 1000);
+});
+function calculateDistanceToMoon()
+{
+	$.ajax({
+		type: "POST",
+		url: "http://10.0.1.40:5000/ephem",
+		data: JSON. stringify({body:"Moon"}),
+success: function(data)
+{
+	//alert(data.miles_away);
+	$("#distance").html(data.miles_away);
+},
+dataType: "json",
+contenType:"application/json"
+});
+}</script>
