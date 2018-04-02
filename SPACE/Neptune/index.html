@@ -1,3 +1,35 @@
+<center>
 <font size="6">This site is about neptune</font>
+<br> <img src="neptune.jpg" width = "400">
+</center>
 
-<br> <img src="neptune.jpg">
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script>
+
+$(function()
+{
+	calculatedistancetoneptune();
+	setInterval(calculatedistancetoneptune, 1000);
+});
+
+function calculatedistancetoneptune()
+{
+	$.ajax({
+		type: "POST",
+		url: "http://10.0.1.40:5000/ephem",
+		data: JSON.stringify({body:"Neptune"}),
+		success:function(data)
+		{
+			//alert(data.miles_away);
+			$("#distance").html(data.miles_away);
+		},
+		dataType:"json",
+		contentType: "application/json"
+	});
+}
+
+</script>
+<center>
+<b id="distance"> 123 </b>
+</center>

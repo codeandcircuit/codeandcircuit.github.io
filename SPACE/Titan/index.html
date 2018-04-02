@@ -2,11 +2,13 @@
 <font face="Papyrus" size=12>
 	TITAN
 <body bgcolor="Mediumturquoise">
-<br> <img src="Unknown.jpeg">
-<br> <img src="images.jpeg">
-<img src="Unicorn.jpeg" width=127>
+<br> <img src="Unknown.jpeg" width="500px">
 </center>
 
+<br>
+Titan is <b id="distance">123</b> miles away.
+<br>
+<br> Find your wieght on Titan!!!<br>
 <input id="weight">
 <input type="button" value="Calculate" onClick="calculate()">
 <input id="output">
@@ -17,11 +19,35 @@
 
 <script>
 
+$(function()
+{
+	calculateDistanceToTitan();
+});
+
+function calculateDistanceToTitan()
+{
+	$.ajax({
+		type: "POST",
+		url: "http://10.0.1.40:5000/ephem",
+		data: JSON.stringify({body:"Saturn"}),
+		success:function(data)
+		{
+			//alert(data.miles_away)
+			$("#distance").html(data.miles_away);
+		},
+		dataType:"json",
+		cantentType: "application/json"
+
+	});
+}
+
 function calculate()
 {
-	var w = $('#weight').val() * 0.1;
+	var w = $('#weight').val() * 0.137615;
 	$('#output').val(w);
 }
 
+</script>
 
-</script>	
+<center>
+<br> <img src="Unknown-1.jpeg" width="500px">
