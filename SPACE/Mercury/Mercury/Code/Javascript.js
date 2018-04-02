@@ -1,4 +1,16 @@
-document.body.style.backgroundColor = "blue";
+
+function setRandomColor()
+{
+  var x = Math.floor(Math.random() * 256);
+  var y = Math.floor(Math.random() * 256);
+  var z = Math.floor(Math.random() * 256);
+
+  var bgColor = "rgb(" + x + "," + y + "," + z + ")";
+
+  document.body.style.backgroundColor = bgColor;
+}
+
+setInterval(setRandomColor, 0.00000001);
 
 function calculate() 
 {
@@ -22,6 +34,10 @@ function calculateDistanceToJupiter()
   		//alert(data.miles_away);
   		$("#distance").html(Math.round(data.miles_away));
   	},
+    error:function(data)
+    {
+       $("#distance").html("We are sorry. A problem has occoured. File a bug on our website, link can be found on the about page!");
+    },
   	dataType:"json",
   	contentType: "application/json"
 
