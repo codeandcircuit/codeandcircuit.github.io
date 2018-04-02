@@ -36,10 +36,11 @@ Calculate your weight on the sun!
 <input id="output">
 
 <script>
-	$(function()
-	{
-		calculateDistanceToEarth();
-	});
+
+$(function() 
+{
+  setInterval(calculateDistanceToEarth, 1000);
+});
 function calculateDistanceToEarth()
 {
 	$.ajax({
