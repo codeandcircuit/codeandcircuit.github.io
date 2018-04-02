@@ -4,6 +4,9 @@
 	<!--MAX FONT SIZE = 10-->
 <font face="Times New Roman" size=10 color="Dodgerblue">
 <b>  Venus  </b>
+<br>
+<font face="Times New Roman" size=5 color="Dodgerblue">
+Welcome to the subsection of this website dedicated to Venus!
 <br>  <img src="pic1.png" width=500>
 </center>
 	<br>
@@ -11,10 +14,13 @@
 	Venus was always mysterious to the world, before 1982 we had never even seen throught its atmosphere. Nobody knew what lied below its carbon cover, with many people having absolutely insane ideas. For example, many thought that there might have been another society like our own, or of aliens. Some film producers even made movies showing prehistoric animals or aliens living there. Some even imagined more humans living there. After 1982, however, we saw the surface, and all of these theories were disproven. 
 	<br>
 	<br>
-	Venus is probably made up of elements very similar to Earth, with a core, mantle, and crust. Scientists don't know for sure about the inner workings of Venus, as taking interior scans of another planet would be a nearly impossible task. Right now we can only predict/ what is on the inside based on its exterior activity. Despite these probable similarities, Venus's crust doesn't show the same plate tectonics that Earth does, with all of its tectonic plates having frozen up and molded together hundreds of millions of years ago, forming one solid crust-peice spanning the whole planet, like a shell. Another difference between Earth and Venus is the magnetic fields. Venus doesn't have as strong of a magnetic field despite its similar materials. It spins much slower than Earth; once every 243 days here on Earth, so it isn't capable of generating such a massive magnetic field as ours.
+	Venus is probably made up of elements very similar to Earth, with a core, mantle, and crust. Scientists don't know for sure about the inner workings of Venus, as taking interior scans of another planet would be a nearly impossible task. Right now we can only predict/ what is on the inside based on its exterior activity. Despite these probable similarities, Venus's crust doesn't show the same plate tectonics that Earth does, with all of its tectonic plates having frozen up and molded together hundreds of millions of years ago, forming one solid crust-peice spanning the whole planet, like a shell. Another difference between Earth and Venus is the magnetic fields. Venus doesn't have as strong of a magnetic field despite its similar materials. It spins much slower than Earth; once every 243 days here on Earth, so it isn't capable of generating such a massive magnetic field as ours. Another interesting fact in relation to Venus's rotation, it is the only planet in our solar system to spin clockwise. Every other planet in the solar system spins counterclockwise. At the same time as this peculiar rotational mystery is happening, the actual time it takes for Venus to rotate is slowing down very slowly. On Venus, a day is longer than a year due to it being very close to the sun. 
 	<br>
 	<br>
-	Due to an extreme greenhouse effect from the atmosphere's large amount of carbon, almost 95% of its composition, surface temperatures of venus is on average four hundred sixty two degrees Celcius (eight hundred seventy two degrees Fahrenheit)! That is hot enough to melt lead! This large amount of carbon can even lead to acidic rainfall, however, this rain can't even reach the surface, as the surface temperature evaporates the sulfuric acid before it can completely fall. 
+	Due to an extreme greenhouse effect from the atmosphere's large amount of carbon, almost 95% of its composition, surface temperatures of venus is on average four hundred sixty two degrees Celcius (eight hundred seventy two degrees Fahrenheit)! That is hot enough to melt lead! This large amount of carbon can even lead to acidic rainfall, however, this rain can't even reach the surface, as the surface temperature evaporates the sulfuric acid before it can completely fall. Venus has no moons as its proximity to the sun would make any moons be taken by the sun's gravitational pull. To this day, we aren't learning too much more about Venus because scientists are actually a bit afraid of it. All probes we have ever put into its atmosphere are destroyed within hours from the heat and acidic atmosphere. 
+	<br>
+	<br>
+	Here is the distance from the Earth to Venus right now <span id="distance"></span>
 <!--for links <a href=(link)>Description</a>-->
 <!--javascript begins below (shows weight on planet)-->
 <!--put this thing at the end please-->
@@ -50,7 +56,7 @@ function checkInput(ob){
 
 $(function()
 {
-	VenusDistance();
+	setInterval(VenusDistance, 50);
 });
 
 function VenusDistance()
@@ -61,9 +67,14 @@ function VenusDistance()
 	data: JSON.stringify({body:"Venus"}),
 	success:function(data)
 {
-	alert(data.miles_away);
+	//alert(data.miles_away);
 	$("#distance").html(data.miles_away);
 },
+error:function(data)
+{
+$("distance").html("distance unavailible");
+},
+
 dataType:"json",
 contentType: "application/json"
 	});
