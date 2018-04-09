@@ -1,15 +1,15 @@
+<body style = "background-color: black; color: grey;">
 <center>
 <font size="6">This site is about neptune</font>
-<br> <img src="neptune.jpg" width = "400">
+<br> <img src="neptune.gif" width = "400">
 </center>
-
+<div style="color: grey; height: 60px; background-color: white"><b id="distance"> Calculating distance form Earth to Neptune... </b></div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
 
 $(function()
 {
-	calculatedistancetoneptune();
 	setInterval(calculatedistancetoneptune, 1000);
 });
 
@@ -22,7 +22,11 @@ function calculatedistancetoneptune()
 		success:function(data)
 		{
 			//alert(data.miles_away);
-			$("#distance").html(data.miles_away);
+			$("#distance").html("Neptune is " + Math.round(data.miles_away) + " miles away from earth.");
+		},
+		error:function(data)
+		{
+			$("#distance").html("Something BAD happend");
 		},
 		dataType:"json",
 		contentType: "application/json"
@@ -31,5 +35,6 @@ function calculatedistancetoneptune()
 
 </script>
 <center>
-<b id="distance"> 123 </b>
+
 </center>
+</body>
