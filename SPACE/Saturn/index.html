@@ -5,11 +5,17 @@
 <script>
 
 $(function()
-{
-	CalculateDistanceToEarth();
 
-});
 
+	{
+		setInterval(CalculateDistanceToEarth,1000)
+
+	});
+
+
+
+<!-- math.round() obviously rounds, floor() cuts off, ceiling() rounds up-->
+<!-- below is for server-->
 function CalculateDistanceToEarth()
 {
 	$.ajax({
@@ -19,10 +25,17 @@ function CalculateDistanceToEarth()
 		success:function(data)
 		{
 			//alert(data.miles_away);
-			$("#distance").html(data.miles_away);
+			$("#distance").html(Math.round(data.miles_away));
 		},
+
+		error:function(data)
+		{
+			$("#distance").html("ERROR");
+		},
+
 		dataType:"json",
 		contentType: "application/json"
+
 
 	});
 }
@@ -74,7 +87,7 @@ For additional information, see: <a href="https://solarsystem.nasa.gov/planets/s
 
 <font face="Copperplate" size= 3 color= "white"> 
 <br> 
-Saturn is <b id="distance">222</b> miles away.
+Saturn is <b id="distance">calculating...</b> miles away.
 <br>
 </font>
 
