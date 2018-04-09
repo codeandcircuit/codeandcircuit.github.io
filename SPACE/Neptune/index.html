@@ -5,12 +5,18 @@
 </center>
 <div style="color: grey; height: 60px; background-color: white"><b id="distance"> Calculating distance form Earth to Neptune... </b></div>
 
+		<input id="weight">
+		<input type="button" value="Calculate" onclick="calculate()">
+		<input id="output">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
-
+		function calculate() {
+			var w = $('#weight').val() * 1.1;
+			$('#output').val(w);
+		}
 $(function()
 {
-	setInterval(calculatedistancetoneptune, 1000);
+	setInterval(calculatedistancetoneptune, 100);
 });
 
 function calculatedistancetoneptune()
@@ -22,15 +28,23 @@ function calculatedistancetoneptune()
 		success:function(data)
 		{
 			//alert(data.miles_away);
-			$("#distance").html("Neptune is " + Math.round(data.miles_away) + " miles away from earth.");
+			$("#distance").html("Neptune is " + numberWithCommas(Math.round(data.miles_away)) + " miles away from earth.");
 		},
 		error:function(data)
 		{
-			$("#distance").html("Something BAD happend");
+			$("#distance").html("An error accured, Please try agin.");
 		},
 		dataType:"json",
 		contentType: "application/json"
 	});
+}
+
+function numberWithCommas(x) {
+    x = x.toString();
+    var pattern = /(-?\d+)(\d{3})/;
+    while (pattern.test(x))
+        x = x.replace(pattern, "$1,$2");
+    return x;
 }
 
 </script>
